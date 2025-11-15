@@ -16,7 +16,7 @@
 const containerEl = document.querySelector('.container');
 
 /* -------------------------------
-  Original main path coordinates
+  Original main path coordinatesup
   ------------------------------- */
 const path = [
   { left: 235, top: 75 },
