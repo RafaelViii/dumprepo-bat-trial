@@ -979,7 +979,7 @@ function createFollowerIfNeeded(){
   }
 
   // Randomly pick boy or girl every time
-  const images = ['assets/boy.png', 'assets/girl.png'];
+  const images = ['boy.png', 'girl.png'];
   const randomIndex = Math.floor(Math.random() * images.length);
   followerEl.src = images[randomIndex];
 }
