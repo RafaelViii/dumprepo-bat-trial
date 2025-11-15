@@ -1,0 +1,115 @@
+:root{
+  --arearoom: #12132259;
+}
+
+/* --- Shared path styles --- */
+.path {
+  background: rgb(99, 79, 190);
+  border-width: 0;
+  opacity: 0.0;
+  position: absolute;
+  border-radius: 0px;
+  box-shadow: 0px 2.83px 2.83px rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+/* Dot grid for visualization */
+.path::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 0px;
+  background-color: rgba(231, 22, 214, 0);
+  z-index: 5;
+}
+
+/* Horizontal paths: dot repeated along width */
+.path.horizontal {
+  background-image: radial-gradient(circle 3px at 5px 50%, rgb(36, 91, 173) 100%, transparent 0);
+  background-size: 10px 100%;
+  background-repeat: repeat-x;
+}
+
+/* Vertical paths: dot repeated along height */
+.path.vertical {
+  background-image: radial-gradient(circle 3px at 50% 5px, rgb(36, 91, 173) 100%, transparent 0);
+  background-size: 100% 10px;
+  background-repeat: repeat-y;
+}
+
+/* Individual path positions */
+.path1  { left: 280px; top: 70px;  width: 446px; height: 15px;  }
+.path2  { left: 710px; top: 70px;  width: 15px;  height: 95px;  }
+
+.path4  { left: 710px; top: 150px; width: 15px;  height: 114px; }
+.path5  { left: 590px; top: 250px; width: 135px; height: 15px;  }
+.path6  { left: 590px; top: 250px; width: 15px;  height: 75px;  }
+.path8  { left: 590px; top: 311px; width: 15px;  height: 138px; }
+.path9  { left: 320px; top: 450px; width: 285px; height: 15px;  }
+.path10 { left: 320px; top: 450px; width: 15px;  height: 115px; }
+.path11 { left: 320px; top: 420px; width: 15px;  height: 45px;  }
+.path12 { left: 208px; top: 420px; width: 128px; height: 15px;  }
+.path15 { left: 208px; top: 355px; width: 15px;  height: 80px;  }
+.path16 { left: 208px; top: 198px; width: 15px;  height: 170px; }
+.path17 { left: 157px; top: 198px; width: 67px;  height: 15px;  }
+.path18 { left: 157px; top: 123px; width: 15px;  height: 90px;  }
+.path19 { left: 157px; top: 123px; width: 139px; height: 15px;  }
+.path20 { left: 280px; top: 70px;  width: 15px;  height: 68px;  }
+.path21 { left: 250px; top: 70px;  width: 45px;  height: 15px;  }
+
+.room1pathA { left: 84px; top: 290px; width: 15px;  height: 80px;  } 
+.room1pathB { left: 84px;  top: 355px; width: 140px;  height: 15px;}
+.room2pathA { left: 156px; top: 200px; width: 15px;  height: 77px;  }
+.room3pathA  { left: 559px; top: 150px; width: 160px; height: 15px;  }
+.room4pathA  { left: 595px; top: 309px; width: 195px;  height: 15px;  }
+.room5pathA  { left: 592px; top: 435px; width: 195px;  height: 15px;  }
+.roomoutpathA  { left: 400px; top: 200px; width: 15px;  height: 250px;  }
+
+/*now in this roomoutpathA, i want to make it oneway aswell, so the path a only move to from*/
+
+.arearoom {
+  background: var(--arearoom);
+  border-width: 0;
+  opacity: 1;
+  position: absolute;
+  /* box-shadow: 0px 2.83px 2.83px rgb(0, 0, 0); */
+  z-index: 1;
+}
+.arearoom1A { left: 70px; top: 290px; width: 119px;  height: 47px;  }
+.arearoom1B { left: 70px; top: 350px; width: 119px;  height: 100px;  }
+.arearoom2A { left: 70px; top: 235px; width: 119px;  height: 41px;  }
+.arearoom3A { left: 559px; top: 119px; width: 55px;  height:79px;  }
+.arearoom4A { left: 631px; top: 306px; width: 157px;  height:100px;  }
+.arearoom5A { left: 628px; top: 425px; width: 160px;  height:65px;  }
+.arearoomoutA{ left: 245px; top: 200px; width: 298px;  height:136px;  }
+.arearoomoutB {left: 279px; top: 336px; width: 264px;  height:70px;  }
+
+
+.areafull {
+  background: rgba(190, 79, 79, 0);
+  border-width: 0;
+  opacity: 0.3;
+  position: absolute;
+  box-shadow: 0px 2.83px 2.83px rgb(0, 0, 0);
+  z-index: 1;
+}
+.areafull {left: 70px; top: 54px; width: 718px;  height:490px;  }
+
+
+/*so in this area, and room path, what i want to here is in roompaths, they are one way, so im gonna explain how their way works
+first for the room1pathA, it goes from top to bottom only, then it would go to room1pathB, which goes from left to right only. they should be one way
+like room1pathA can't go bottom to top, and room1pathB cant go right to left, so same for room2pathA, it goes from bottom to top only.
+room3pathA goes from left to right only, room4pathA goes from right to left only, and room5pathA goes from right to left only as well. 
+now about the areas such as arearoom1a, it's the field or area that if i put the icon in that area, it would to that path for example 
+i put the icon on arearoom1A, then it would go to room1pathA, if i put the icon in arearoom1B, it would to room1PathB 
+also like other, it's the same so i want this room paths exclusive only on their area's if its beyond that area, then it should go to main path.
+now, so this one is crucial, after the icon travel through the end of paths, for example in roompath1B since its the conjunction of room1pathA and room1pathB
+but the room1pathB is the end of the rail, then after it travels to the end of that rail, it would go to the nearest main path then continue moving to the finish line
+now, do it on the rest of the roompaths*/
+
+/* Note: these rules only include left/top/width/height.
+   Ensure .pathN elements are positioned (e.g., position:absolute)
+   by keeping a shared rule like:
+     .path { position: absolute; /* and the common visual styles */
+     

@@ -1,0 +1,126 @@
+:root{
+  --redhazard-color: rgba(255, 0, 0, 0.85);
+}
+
+/* Icons panel - card list view on the right */
+.icons-panel {
+  /* width: 140px; */
+  max-width: fit-content;
+  padding: 15px;
+
+  background: rgb(21, 22, 34);
+
+  /* From https://css.glass */
+  /* background: rgba(18, 19, 34, 0.6);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.2px);
+  -webkit-backdrop-filter: blur(12.2px);
+  border: 1px solid rgba(18, 19, 34, 0.53); */
+  /* background:#1213221f; */
+  /* box-shadow: 0 2px 18px rgba(0, 0, 0, 0.89); */
+  
+  border: 1px solid #15162541;
+  position: absolute;
+  right: 0px;
+  top: 120px;
+  /* bottom: 20px; */
+  overflow-y: auto;
+  z-index: 600;
+  border-radius: 10px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+.icons-title {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  font-family:Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+  
+.icons-list {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  gap: 10px;
+  padding: 2px;
+}
+
+/* card */
+.icon-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgb(28, 29, 48);
+  border-radius: 8px;
+  padding: 6px;
+  cursor: grab;
+  user-select: none;
+  border: 1px solid  rgb(34, 36, 56);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.icon-card:active { cursor: grabbing; transform: scale(.98); }
+.icon-img {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  border-radius: 6px;
+  object-fit: contain;
+}
+.icon-label {
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1;
+}
+
+
+
+/* Visual hazard style for path elements */
+.path.hazard {
+  background-image: none !important;
+  background-color: rgba(255, 200, 0, 0.95) !important;
+  opacity: 0.95 !important;
+  box-shadow: 0 2px 6px rgba(200,120,10,0.7);
+  border-color: rgba(200,120,10,0.9);
+}
+
+/* placed icon visuals */
+.placed-hazard {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 700;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+}
+
+.secondary{
+  position:relative;
+  height: 35px;
+  /* top: 5px; */
+  /* left: 0px; */
+  background-color:var(--redhazard-color);
+}
+
+.exitIcon{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  left: 40px;
+  z-index: 700;
+}
+
+
+/* keep layout tidy when smaller screens — collapse icons panel lightly */
+@media (max-width: 900px){
+  .icons-panel { right: 6px; width: 120px; padding: 8px; }
+}
+/* Add these styles (or paste into your main CSS) so dots are invisible by default
+   and light up when the rat passes (class .trail). Keep your existing .dot.blocked
+   rules so hazard blocking visuals remain.
+*/

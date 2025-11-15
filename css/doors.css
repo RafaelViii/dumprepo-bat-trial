@@ -1,0 +1,54 @@
+/* Root variables for easy design */
+:root {
+    --door-exit-bg: rgba(79, 123, 190, 1);
+    --door-exit-border: rgba(62, 84, 165, 1);
+    --door-exit-opacity: 0.0;
+    --door-exit-shadow: 0px 2.83px 2.83px rgba(0, 0, 0, 0.75);
+
+
+    --door-bg: rgba(79, 123, 190, 1);
+    --door-border: rgba(62, 84, 165, 1);
+    --door-opacity: 0.49;
+    --door-shadow: 0px 2.83px 2.83px rgba(0, 0, 0, 0.75);
+}
+
+/* Shared styles for all exits and doors */
+.exit, .door {
+    background: var(--door-exit-bg);
+    border: 0 solid var(--door-exit-border);
+    opacity: var(--door-exit-opacity);
+    position: absolute;
+    box-shadow: var(--door-exit-shadow);
+    filter: alpha(opacity=49) progid:DXImageTransform.Microsoft.Alpha(opacity=49) 
+            progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=2.83, Color='#000000');
+}
+
+/* Individual positions and sizes */
+.exit1  { left: 262px; top: 550px; width: 115px; height: 8px; }
+.exit2  { left: 265px; top: 37px;  width: 9px;   height: 60px; }
+
+.door2  { left: 190px; top: 352px; width: 9px;   height: 20px; }
+.door4  { left: 152px; top: 222px; width: 24px;  height: 10px; }
+.door5  { left: 187px; top: 195px; width: 9px;   height: 18px; }
+.door6  { left: 73px;  top: 340px; width: 38px;  height: 7px; }
+.door8  { left: 233px; top: 118px; width: 9px;   height: 25px; }
+.door9  { left: 267px; top: 412px; width: 10px;  height: 34px; }
+.door10 { left: 617px; top: 142px; width: 8px;   height: 36px; }
+.door11 { left: 545px; top: 428px; width: 11px;  height: 57px; }
+.door12 { left: 614px; top: 308px; width: 8px;   height: 24px; }
+.door13 { left: 616px; top: 427px; width: 8px;   height: 32px; }
+.door14 { left: 687px; top: 102px; width: 54px;  height: 11px; }
+
+
+
+.door1, .door2, .door4, .door5, .door6, .door8, .door9, .door10, 
+.door11, .door12, .door13, .door14 {
+    background: var(--door-bg);
+    border-style: solid;
+    border-color: var(--door-border);
+    border-width: 0px;
+    opacity: var(--door-opacity);
+    position: absolute;
+    box-shadow: var(--door-shadow);
+    filter: alpha(opacity=49) progid:DXImageTransform.Microsoft.Alpha(opacity=49) progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=2.83, Color='#000000');
+}

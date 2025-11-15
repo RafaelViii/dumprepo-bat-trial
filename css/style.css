@@ -1,0 +1,292 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root{
+    --door-color: #4CAF50;
+    --corner-color: #FF9800;
+    --buttoncontrol-bg: #a71420;
+    --nav-background-color: #121322;
+    --logout-bg: #fff;
+    --toggle-bg: #379b3c;
+    --reset-bg: #b83434;
+    --camera-bg:#eeeeee;
+    --content-border-color: #25263a;
+    /* --container-color:radial-gradient(circle at center, #dbe7f7 0%, #a3b9de 40%, #8396b9 100%); */
+    --container-color:white;
+}
+
+
+body {
+      margin: 0;
+      background: var(--container-color);
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    nav{
+    position: relative;
+    /* top: -20px; */
+    /* padding: 5px; */
+    margin: 0 0 40px 0;
+    width:100%; 
+    text-align: center;
+    border-radius: 1px;
+    color: white;
+    background-color: var(--nav-background-color);
+    }
+
+    .header{
+      font-family:Helvetica, sans-serif;
+    }
+
+    .logout{
+      position: absolute;
+      color: #121322;
+      font-weight:700;
+      border-radius: 20px;
+      background-color:var(--logout-bg);
+      top: 20px;
+      right: 50px;
+    }
+      .logout:hover {
+    background-color: #2a2c46; /* change color on hover */
+    color: white; /* make text white when hovered */
+    transform: scale(1.05); /* slight zoom effect */
+  }
+
+   
+
+    .container {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      background: var(--container-color);
+      border: 5px solid var(--content-border-color);
+      border-radius: 2px;
+      padding: 30px;
+      overflow: hidden;
+      box-shadow: -1px 8px 34px -5px rgba(66, 68, 90, 1);
+    }
+
+    .legends{
+      position: absolute;
+      width: 300px;
+      top: 120px;
+      left: 50px;
+      /* right: 200px; */
+    }
+
+
+    .floorimg{
+      position:absolute;
+      width: 350px;
+      top: 550px;
+      left: 50px;
+    }
+
+    .emc{
+      position:absolute;
+      color: #2a3153;
+      top:550px;
+      left: 52px;
+      font-size: 20px;
+       font-family: "Open Sans";
+       font-weight: bolder;
+ 
+    }
+
+    
+
+    .controls {
+      height: 35px;
+      margin-top: 550px;
+      padding: 20px;
+      display: flex;
+      /* border-radius: px; */
+      gap: 10px;
+    }
+
+    .controls #toggleBtn{
+      background-color: var(--toggle-bg);
+    }
+
+    
+    .controls #resetBtn{
+      background-color: var(--reset-bg);
+    }
+    
+
+    button {
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      background: var(--buttoncontrol-bg);
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    button:hover { background: #1c264a; }
+
+
+    .simulation-explanation{ 
+      position: absolute;
+      text-align:justify;
+      top: 555px;
+      font-size: 11px;
+      color:#1a1a1b;
+      left: 400px;
+      width: 400px;
+    }
+
+    /* Rat */
+    .rat {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: #00000000;
+      border-radius: 50%;
+      transform: translate(-50%, -60%);
+      z-index: 900;
+      pointer-events: auto;
+      cursor: grab;
+    }
+
+    /* Dot + trail styles */
+    .trail-marker {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: rgb(81, 255, 0);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 4;
+    }
+    /* follower (place in your main CSS) */
+/* --- Add/replace these rules to support camera centering (translate of the map) --- */
+
+/* Ensure the element with id="mapContainer" can be translated and stays positioned */
+#mapContainer, .container {
+  /* ensure transform origin is top-left so translate(x,y) moves content predictably */
+  transform-origin: 0 0;
+  /* enable hardware-accelerated transform for smoother animation */
+  will-change: transform;
+  /* keep overflow hidden so the viewport crops the map */
+  overflow: hidden;
+  /* keep existing position rules (if .container already sets these, no change) */
+  position: relative;
+}
+
+/* Optional: smooth transitions when JS toggles smooth=true */
+#mapContainer.smooth-center {
+  transition: transform 0.08s linear;
+}
+
+/* Follower visual remains unchanged; ensure highest z-index so it remains visible above dots */
+.follower {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  z-index: 1200;
+  pointer-events: none;
+}
+    .dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(224, 75, 75, 0.562);
+      transform: translate(-50%, -50%);
+      z-index: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      cursor: pointer;
+    }
+    .dot .label {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: #111;
+      background: rgba(255,255,255,0.85);
+      padding: 0 3px;
+      border-radius: 3px;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+    .dot.blocked {
+      background: yellow;
+      border: 1px solid orange;
+    }
+
+    /* Debug panel inside container bottom-right */
+    .debug-panel {
+      position: relative;
+      /* top:75%; */
+      margin-top: 50px;
+      bottom: 10px;
+      width: fit-content;
+      max-height: fit-content;
+      background: rgb(255, 255, 255);
+      color: #1a1e24;
+      padding: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      overflow: auto;
+      border-radius: 8px;
+      z-index: 1000;
+    }
+
+    .path1, .path2, .path3, .path4, .path5, .path6, .path7,
+    .path8, .path9, .path10, .path11, .path12, .path13, .path14, .path15 {
+      pointer-events: none;
+      z-index: 100;
+    }
+
+
+    #pos{
+
+        font-style: italic;
+        font-size: 14px;
+    }
+
+    .person {
+    position: relative;
+    width: 70px;
+    transition: opacity 0.3s ease; /* smooth fade */
+    }
+
+
+    .camera{
+      background-color:var(--camera-bg);
+      margin: 10px 0 0 3px;
+      width: 96%;
+      font-weight: 700;
+    
+      color: #000000;
+      transition: color 0.2s; 
+    }
+
+    .camera:hover {
+      color: white;
+      cursor: pointer; 
+    }
+    
+    .camerascan{
+      background-color: rgb(179, 64, 64);
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    .camerascan:hover{
+      background-color:  rgb(163, 48, 48);
+    }
+
+  

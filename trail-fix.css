@@ -1,0 +1,35 @@
+/* Minimal CSS fixes to ensure dot/trail visuals behave correctly.
+   Add or merge this into your main CSS (path.css or style.css).
+*/
+
+.dot {
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* invisible by default */
+  transition: opacity 0.12s linear, transform 0.12s ease, box-shadow 0.12s ease;
+  pointer-events: auto;
+  z-index: 600; /* place above path visuals */
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+}
+
+/* When rat passes, dot gets 'trail' class and becomes visible.
+   Use !important to ensure it shows up even if some other rule hides dots.
+*/
+.dot.trail {
+  opacity: 1 !important;
+  background: rgba(255,200,0,0.95) !important;
+  box-shadow: 0 2px 6px rgba(200,120,10,0.7) !important;
+  transform: translate(-50%, -50%) scale(1.05) !important;
+}
+
+/* Blocked (hazard) dots keep visible and visually distinct */
+.dot.blocked {
+  opacity: 1 !important;
+  background: rgba(255,120,20,0.98) !important;
+  box-shadow: 0 2px 8px rgba(200,100,20,0.8) !important;
+  transform: translate(-50%, -50%) scale(1.15) !important;
+}

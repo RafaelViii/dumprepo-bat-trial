@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Evacuation Path Analyzer - LCC</title>
+  
+  <link rel="stylesheet" href="css/path.css" />
+  <link rel="stylesheet" href="css/doors.css">
+  <link rel="stylesheet" href="css/corners.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/icons.css" />
+  <link rel="stylesheet" href="css/room.css"/>
+</head>
+<body>
+ 
+<nav>
+    <h1 class="header">Path Analysis Simulator</h1>
+    <button class="logout" id="logout">Logout</button>
+</nav>
+
+<!-- Main area + icons panel wrapper -->
+<div class="main-wrapper">
+  <div class="container" id="mapContainer">
+    <div class="rat" id="rat" style="left:200px; top:200px">
+      <img class="person" src="assets/human.png" alt="Person" />
+    </div>
+
+    
+
+    <!-- Paths container -->
+    <div class="path path1 horizontal"></div>
+    <div class="path path2 vertical"></div>
+    <div class="path path3 horizontal"></div>
+    <div class="path path4 horizontal"></div>
+    <div class="path path5 vertical"></div>
+    <div class="path path6 horizontal"></div>
+    <div class="path path7 horizontal"></div>
+    <div class="path path8 vertical"></div>
+    <div class="path path9 horizontal"></div>
+    <div class="path path10 horizontal"></div>
+    <div class="path path11 vertical"></div>
+    <div class="path path12 horizontal"></div>
+    <div class="path path13 vertical"></div>
+    <div class="path path14 horizontal"></div>
+    <div class="path path15 vertical"></div>
+    <div class="path room1pathA vertical"></div>
+    <div class="path room1pathB horizontal"></div>
+    <div class="path room2pathA vertical"></div>
+    <div class="path room3pathA horizontal"></div>
+    <div class="path room4pathA horizontal"></div>
+    <div class="path room5pathA horizontal"></div>
+    <div class="path roomoutpathA vertical"></div>
+    <div class="path roomoutpathB horizontal"></div>
+    <div class="path roomoutpathC horizontal"></div>
+
+    <div class="arearoom arearoom1A"></div>
+    <div class="arearoom arearoom1B"></div>
+    <div class="arearoom arearoom2A"></div> 
+    <div class="arearoom arearoom3A"></div>
+    <div class="arearoom arearoom4A"></div> 
+    <div class="arearoom arearoom5A"></div>
+    <div class="arearoom arearoomoutA"></div>
+    <div class="arearoom arearoomoutB"></div>
+    <div class="arearoom areafull"></div>
+
+    <!-- Door divs -->
+    <div class="door door1"></div>
+    <div class="door door2"></div>
+    <div class="door door3"></div>
+    <div class="door door4"></div>
+    <div class="door door5"></div>
+    <div class="door door6"></div>
+    <div class="door door7"></div>
+    <div class="door door8"></div>
+    <div class="door door9"></div>
+    <div class="door door10"></div>
+    <div class="door door11"></div>
+    <div class="door door12"></div>
+    <div class="door door13"></div>
+    <div class="door door14"></div>
+
+    <!-- Exit divs -->
+    <div class="exit exit1"></div>
+    <div class="exit exit2"></div>
+
+    <!-- Corner divs -->
+    <div class="corner corner1"></div>
+    <div class="corner corner2"></div>
+    <div class="corner corner2a"></div>
+    <div class="corner corner2b"></div>
+    <div class="corner corner2c"></div>
+    <div class="corner corner2ca"></div>
+    <div class="corner corner3"></div>
+    <div class="corner corner3a"></div>
+    <div class="corner corner4"></div>
+    <div class="corner corner5"></div>
+    <div class="corner corner6"></div>
+    <div class="corner corner6a"></div>
+    <div class="corner corner7"></div>
+    <div class="corner corner7a"></div>
+    <div class="corner corner7b"></div>
+    <div class="corner corner8"></div>
+    <div class="corner corner9"></div>
+    <div class="corner corner9a"></div>
+    <div class="corner corner9b"></div>
+    <div class="corner corner10"></div>
+    <div class="corner corner11"></div>
+    <div class="corner corner12"></div>
+    <div class="corner corner13"></div>
+    <div class="corner corner14"></div>
+    <div class="corner corner15"></div>
+    <div class="corner corner16"></div>
+    <div class="corner corner17"></div>
+    <div class="corner corner18"></div>
+    <div class="corner corner19"></div>
+    <div class="corner corner20"></div>
+    <div class="corner corner21"></div>
+    <div class="corner corner22"></div>
+
+    <div class="controls">
+
+  <p class="emc">Controls</p>
+  
+  <button id="toggleBtn">Simulate</button>
+  <button id="resetBtn">Clear Nodes</button>
+  <button id="followBtn">Follow Path</button>
+
+  <p class="simulation-explanation">This website showcases a 2D simulation based on our research on AI-Based Optimized Evacuation Routes in large buildings during emergencies. 
+  Using live 3D mapping data captured by LiDAR and other monitoring sensors, we recreate the building layout in 2D, showing rooms, hallways, 
+  and potential evacuation paths. This simulation visualizes how our AI system analyzes real-time data to guide occupants safely, demonstrating 
+  the concept and process behind optimized emergency evacuation.</p>
+  
+  <div class="exitIcon">
+        <img class="exitupper" src="assets/icons8-fire-exit-80.png" alt="Exit Icon">
+      </div>
+  </div>
+  </div>
+
+  <div class="legend">
+  <img class="legends" src="./assets/Asset 1.png" alt="Legend image">
+  </div>
+
+  <div class="floor">
+  <img class="floorimg" src="./assets/FloorBase.png" alt="Floor Plan">
+  </div>
+
+
+  <!-- Icons panel on the right (built from icons.js) -->
+  <aside class="icons-panel" id="iconsPanel" aria-label="Hazard icons">
+    <h2 class="icons-title">Hazard Icons</h2>
+    <div class="icons-list" id="iconsList">
+      <!-- Cards will be generated by icons.js / try11.js using ICONS[] -->
+    </div>
+
+    
+    
+    <div class="debug-panel" id="debugPanel">
+      <strong>Simulation Data</strong><br>
+      Position: <span id="pos">-</span><br>
+      Step: <span id="step">-</span><br>
+      Direction: <span id="dir">-</span><br>
+      Next Path: <span id="nb">-</span>
+    </div>
+
+  </aside>
+  
+    
+  
+</div>
+
+<script defer>
+  // Prevent access if not logged in
+  if (!sessionStorage.getItem('evac_admin_user')) {
+    window.location.href = 'index.html'; // redirect to login
+  }
+
+  // Prevent back button navigation after login
+  history.pushState(null, null, location.href);
+  window.onpopstate = function () {
+    history.go(1);
+  };
+
+  // Logout logic
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      sessionStorage.removeItem('evac_admin_user'); // clear session
+      window.location.href = 'index.html'; // back to login
+    });
+  }
+
+
+  document.getElementById("resetBtn").addEventListener("click", function() {
+    location.reload();
+  });
+  
+   document.getElementById("logout").addEventListener("click", function() {
+    // Optionally clear any saved session data
+    sessionStorage.clear();
+    localStorage.clear();
+    
+    // Redirect to the index page
+    window.location.href = "index.html";
+  });
+
+  
+</script>
+
+
+
+
+<script src="icons.js"></script>
+<script src="dump.js"></script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+/* Root variables for easy design */
+:root {
+    --corner-bg-color: #292c42;
+    --corner-border-color: rgba(4, 16, 65, 0);
+}
+
+/* Shared styles for all corners */
+.corner {
+    background: var(--corner-bg-color);
+    border: 1px solid var(--corner-border-color);
+    opacity: 1;
+    position: absolute;
+}
+
+/* Individual positions/sizes */
+.corner1   { left: 277px; top: 37px;  width: 524px; height: 15px; }
+.corner2   { left: 787px; top: 37px;  width: 15px;  height: 467px; }
+.corner2a  { left: 745px; top: 101px; width: 57px;  height: 13px; }
+.corner2b  { left: 613px; top: 290px; width: 189px; height: 13px; }
+.corner2c  { left: 614px; top: 407px; width: 187px; height: 15px; }
+.corner2ca { left: 614px; top: 337px; width: 15px;  height: 85px; }
+.corner3   { left: 366px; top: 490px; width: 436px; height: 15px; }
+.corner3a  { left: 615px; top: 464px; width: 10px;  height: 40px; }
+.corner4   { left: 366px; top: 490px; width: 15px;  height: 53px; }
+.corner5   { left: 263px; top: 451px; width: 13px;  height: 92px; }
+.corner6   { left: 50px;  top: 451px; width: 227px; height: 13px; }
+.corner6a  { left: 188px; top: 378px; width: 10px;  height: 85px; }
+.corner7a  { left: 50px;  top: 220px; width: 96px;  height: 12px; }
+.corner7   { left: 50px;  top: 103px; width: 17px;  height: 435px; }
+.corner7b  { left: 50px;  top: 276px; width: 149px; height: 13px; }
+.corner8   { left: 50px;  top: 103px; width: 227px; height: 10px; }
+.corner9   { left: 188px; top: 219px; width: 11px;  height: 128px; }
+.corner9a  { left: 180px; top: 222px; width: 20px;  height: 10px; }
+.corner9b  { left: 116px; top: 338px; width: 83px;  height: 9px; }
+.corner10  { left: 186px; top: 171px; width: 11px;  height: 19px; }
+.corner11  { left: 186px; top: 171px; width: 56px;  height: 11px; }
+.corner12  { left: 231px; top: 148px; width: 11px;  height: 202px; }
+.corner13  { left: 231px; top: 336px; width: 46px;  height: 13px; }
+.corner14  { left: 265px; top: 336px; width: 12px;  height: 70px; }
+.corner15  { left: 231px; top: 185px; width: 326px; height: 13px; }
+.corner16  { left: 543px; top: 101px; width: 14px;  height: 322px; }
+.corner17  { left: 543px; top: 101px; width: 138px; height: 15px; }
+.corner18  { left: 614px; top: 101px; width: 15px;  height: 37px; }
+.corner19  { left: 543px; top: 200px; width: 83px;  height: 13px; }
+.corner20  { left: 543px; top: 200px; width: 83px;  height: 13px; }
+.corner21  { left: 612px; top: 185px; width: 14px;  height: 28px; }
+.corner22  { left: 543px; top: 410px; width: 27px;  height: 13px; }

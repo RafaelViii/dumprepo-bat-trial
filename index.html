@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Evacuation Route Admin — Login</title>
+  <link rel="stylesheet" href="css/adminstyle.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="login-card" aria-labelledby="login-title">
+      <h1 id="login-title" class="title">Simulation Control Center.</h1>
+
+      <form id="loginForm" class="login-form" autocomplete="off" novalidate>
+        <label for="username" class="sr">Username</label>
+        <input id="username" name="username" type="text" inputmode="text" placeholder="Username" required autofocus />
+
+        <label for="password" class="sr">Password</label>
+        <input id="password" name="password" type="password" placeholder="Password" required />
+
+        <div class="form-actions">
+          <button id="submitBtn" type="submit" class="btn">Sign in</button>
+        </div>
+
+        <p id="error" class="error" role="alert" aria-live="assertive"></p>
+      </form>
+
+      <footer class="muted">Authorized personnel login for route analysis</footer>
+    </section>
+  </main>
+
+  <!-- Success overlay / loader -->
+  <div id="loaderOverlay" class="loader-overlay" aria-hidden="true">
+    <div class="loader-card" role="status" aria-live="polite">
+      <div class="dots" aria-hidden="true">
+        <span class="dot d1"></span>
+        <span class="dot d2"></span>
+        <span class="dot d3"></span>
+      </div>
+      <div class="loader-text">Please wait — loading</div>
+    </div>
+  </div>
+
+  <script src="adminjs.js" defer></script>
+</body>
+</html>
