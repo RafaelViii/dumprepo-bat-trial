@@ -36,12 +36,12 @@ const path = [
 ];
 // Replace this with your server's IP/address, e.g. ws://192.168.1.10:8081
 // GAGO KA!
-// const POVID_SERVER_URL = 'wss://YOUR_SERVER_NIGADOMAIN_OR_IP:PORT/'; 
-// let povWs;
-// function connectPovWs() {
-//   povWs = new WebSocket(POVID_SERVER_URL);
-// }
-// connectPovWs();
+const POVID_SERVER_URL = 'ws://192.168.100.149'; 
+let povWs;
+function connectPovWs() {
+  povWs = new WebSocket(POVID_SERVER_URL);
+}
+connectPovWs();
 
 const DOT_SPACING = 10;
 const MAX_LABELS = 26;
