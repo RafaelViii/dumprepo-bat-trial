@@ -36,7 +36,7 @@ const path = [
 ];
 // Replace this with your server's IP/address, e.g. ws://192.168.1.10:8081
 // GAGO KA!
-const POVID_SERVER_URL = 'ws://192.168.100.149:8081'; 
+const POVID_SERVER_URL = 'wss://YOUR_SERVER_DOMAIN_OR_IP:PORT/'; 
 let povWs;
 function connectPovWs() {
   povWs = new WebSocket(POVID_SERVER_URL);
@@ -979,7 +979,7 @@ function createFollowerIfNeeded(){
   }
 
   // Randomly pick boy or girl every time
-  const images = ['boy.png', 'girl.png'];
+  const images = ['assets/boy.png', 'assets/girl.png'];
   const randomIndex = Math.floor(Math.random() * images.length);
   followerEl.src = images[randomIndex];
 }

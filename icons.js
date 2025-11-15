@@ -4,10 +4,10 @@
 // It also falls back to a CDN icon if a local file is missing.
 
 const ICONS = [
-  { id: 'fire',  label: 'Fire',            src: 'fire.png' },
-  { id: 'electric', label: 'Electric',     src: 'electricity-hazard.png' },
-  { id: 'sea',   label: 'Wet',             src: 'sea.png' },
-  { id: 'stone', label: 'Debris',           src: 'stone.png' }
+  { id: 'fire',  label: 'Fire',            src: 'assets/fire.png' },
+  { id: 'electric', label: 'Electric',     src: 'assets/electricity-hazard.png' },
+  { id: 'sea',   label: 'Wet',             src: 'assets/sea.png' },
+  { id: 'stone', label: 'Debris',           src: 'assets/stone.png' }
 ];
 
 // Fallback icon (CDN) used when a local image fails to load
